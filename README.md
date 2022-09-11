@@ -11,7 +11,7 @@ In this application the components `Apple` and `Mushroom` each select a part of 
 
 Currently, if you click Apple or Mushroom, only that component will re-render, and the other will not. But if you change one line in this application, both will re-render. Try editing this appication in Stackblitz
 
-https://stackblitz.com/edit/use-selector-explore-sb
+https://stackblitz.com/edit/use-selector-explore
 
 and uncomment line 69 in `App.js`:
 
