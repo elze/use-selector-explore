@@ -8,6 +8,9 @@ export const originalState = {
 
 export function reducer(state=originalState, action) {  
   switch (action.type) {
+      case 'setData':
+        console.log(`reducer, case setData: originalState = ${JSON.stringify(originalState)} `);
+        return originalState;   	  	  
       case 'incrementCount': 
 		const num = (action.num + 1) % 10;
 		if (action.name === "apple") {

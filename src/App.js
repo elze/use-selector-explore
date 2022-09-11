@@ -7,10 +7,9 @@ const Apple = () => {
 	const dispatch = useDispatch();
 	const appleState = useSelector(
 		(state) => {
-		// console.log(`Apple useSelector: state = ${JSON.stringify(state)}`)
-		return state.apple;
-		}, 
-		shallowEqual 
+			// console.log(`Apple useSelector: state = ${JSON.stringify(state)}`)
+			return state.apple;
+		}, shallowEqual 
 	);	
 	const num = parseInt(appleState.split(" ")[1]);
 	console.log(`Apple num = ${num}`);	
@@ -32,10 +31,9 @@ const Mushroom = () => {
 	const dispatch = useDispatch();
 	const mushroomState = useSelector(
 		(state) => {
-		// console.log(`Mushroom useSelector: state = ${JSON.stringify(state)}`)
-		return state.mushroom;
-		}, 
-		shallowEqual 
+			// console.log(`Mushroom useSelector: state = ${JSON.stringify(state)}`)
+			return state.mushroom;
+		}, shallowEqual 
 	  );	
 	const num = parseInt(mushroomState.split(" ")[1]);
 	console.log(`Mushroom num = ${num}`);
@@ -54,6 +52,20 @@ const Mushroom = () => {
 }
 
 function App() {
+	
+	const dispatch = useDispatch();
+	//const count = useRenderTimes();
+	// const appState = useSelector((state) => state, shallowEqual);
+
+  React.useEffect(() => {   
+      console.log(`Foo: App: about to dispatch setData`);
+      dispatch({type: 'setData'});
+
+      return () => {
+          console.log('App component is being destroyed');
+      };
+
+  }, [dispatch]);	
   return (
     <div className="App">
 	<p>Click either "Apple" or "Mushroom" button. The counter in the corresponding white box will increase. With React Dev Tools enabled in the browser, it will show which component has re-rendered.</p>
