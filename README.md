@@ -1,4 +1,26 @@
-# Getting Started with Create React App
+# Getting Started with use-selector-explore
+
+This project was created to investigate how the `useSelector` hook works in React.js.
+
+`useSelector` selects only the part of the application state that a component needs. Especially when used with `shallowEqual`, is supposed to prevent the component from re-rendering if its part of the state hasn't changed.
+
+In this application the components `Apple` and `Mushroom` each select a part of the application's state. If you open this application in Stackblitz (https://use-selector-explore.stackblitz.io/) and open Redux Dev Tools in your browser's Dev Tools, then click on either Apple or Mushroom buttons, you will see which components are being re-rendered. 
+
+(It is best to use Firefox, because in Firefox Redux Dev Tools a component is highlighted when it is being re-rendered. In Chrome, you can still see which components were re-rendered when, in the Profiler tab of Redux Dev Tools, but it is less convenient. Also, a lot of times the Stackblitz URL will hang while loading, so just try to reload it until it loads. It's an unfortunate bug in Stackblitz.)
+
+
+Currently, if you click Apple or Mushroom, only that component will re-render, and the other will not. But if you change one line in this application, both will re-render. Try editing this appication in Stackblitz
+
+https://stackblitz.com/edit/use-selector-explore-sb
+
+and uncomment line 69 in `App.js`:
+
+```const appState = useSelector((state) => state, shallowEqual);```
+
+After this, both Apple and Mushrooms components will re-render when you click either button. This is despite the fact that the `console.log` in `reducers.js` shows that the `shallowEqual` of the other component's part of the state is true, which is to say that for the other component its previous state is `shallowEqual` to the new state.
+
+
+---
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
