@@ -20,6 +20,11 @@ and uncomment line 69 in `App.js`:
 After this, both Apple and Mushrooms components will re-render when you click either button. This is despite the fact that the `console.log` in `reducers.js` shows that the `shallowEqual` of the other component's part of the state is true, which is to say that for the other component its previous state is `shallowEqual` to the new state.
 
 
+Why? That's the mystery I'm trying to figure out.
+
+In this very simple application `appState` is not used, so there is no need to have that line. But there may be use cases where we would need this line, because we need some data bit from `appState` that exists at the application level and can't be farmed out to individual components. In that case I would like components not to re-render unnecessarily.
+
+
 ---
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
