@@ -11,7 +11,8 @@ const Apple = () => {
 			return state.apple;
 		}, shallowEqual 
 	);	
-	const num = parseInt(appleState.split(" ")[1]);
+	// const num = parseInt(appleState.split(" ")[1]);
+	const num = appleState.quantity;
 	console.log(`Apple num = ${num}`);	
     return (
 	<div>
@@ -21,7 +22,7 @@ const Apple = () => {
 		Apple
       </button>
 	  <div className="my-component">
-		<img src="https://blog.geekitude.com/wp-content/uploads/2022/09/braeburn_variety-page-50x50-1.png" alt="Braeburn apple"/>{appleState}
+		<img src="https://blog.geekitude.com/wp-content/uploads/2022/09/braeburn_variety-page-50x50-1.png" alt="Braeburn apple"/>{appleState.kind} : {appleState.quantity}
 	  </div>
 	</div>
     );
@@ -35,7 +36,8 @@ const Mushroom = () => {
 			return state.mushroom;
 		}, shallowEqual 
 	  );	
-	const num = parseInt(mushroomState.split(" ")[1]);
+	// const num = parseInt(mushroomState.split(" ")[1]);
+	const num = mushroomState.quantity;
 	console.log(`Mushroom num = ${num}`);
 	return (
 	<div>
@@ -45,7 +47,7 @@ const Mushroom = () => {
 		Mushroom
 	  </button>
 	  <div className="my-component">
-		<img src="https://blog.geekitude.com/wp-content/uploads/2022/09/portobello-2006620_1280_50.png" alt="Portabella mushrooms"/>{mushroomState}
+		<img src="https://blog.geekitude.com/wp-content/uploads/2022/09/portobello-2006620_1280_50.png" alt="Portabella mushrooms"/>{mushroomState.kind} : {mushroomState.quantity}
 	  </div>
 	</div>
 	);
